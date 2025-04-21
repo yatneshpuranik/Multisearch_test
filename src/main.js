@@ -106,6 +106,43 @@ const getButton = () => {
 
 getButton();
 
+document.addEventListener("keydown", (event) => {
+  const searchInput = document.querySelector(".search");
+
+  if (event.key === "/") {
+    event.preventDefault(); // Prevent the default action of the slash key
+    searchInput.focus();
+  } else if (event.key === "Escape") {
+    searchInput.blur();
+  }
+});
+
+// Event listener for search input box to handle Enter key
+document.querySelector(".search").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent the default form submission
+    const query = event.target.value.trim();
+    const [prefix, ...rest] = query.split(" ");
+    const queryText = rest.join(" ");
+
+    const engines = {
+      g: ["https://www.google.com", "/search?q="],
+      yt: ["https://www.youtube.com", "/results?search_query="],
+      mdn: ["https://developer.mozilla.org/en-US/search", "?q="],
+      gh: ["https://github.com/search", "?q="],
+    };
+
+    if (engines[prefix]) {
+      const [url, param] = engines[prefix];
+      openURL(url, param, queryText);
+    } else {
+      openURL("https://www.google.com", "/search?q=", query);
+    }
+  }
+});
+
+// Event listener for search icon click (commented out)
+/*
 const searchIcon = document.querySelector(".search-icon");
 if (searchIcon) {
   searchIcon.addEventListener("click", () => {
@@ -127,4 +164,11 @@ if (searchIcon) {
       openURL("https://www.google.com", "/search?q=", query);
     }
   });
+}
+*/
+
+// Helper function to open the URL
+function openURL(base, param, query) {
+  const searchURL = `${base}${param}${encodeURIComponent(query)}`;
+  window.open(searchURL, "_blank");
 }
