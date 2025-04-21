@@ -154,7 +154,7 @@ button:focus {
 }
 
 /* Search icon */
-.search-icon
+/* .search-icon
  {
     
     padding: 0.5rem;
@@ -166,7 +166,7 @@ button:focus {
  }
 .search-icon :hover {
   cursor: pointer;
-}
+} */
 
 /* GitHub icon/button */
 .github {
