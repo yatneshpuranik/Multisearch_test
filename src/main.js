@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 import platforms from "./platforms";
 
 const col1 = document.querySelector(".col1");
@@ -16,14 +16,10 @@ function getFaviconUrl(url) {
     const googleFaviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${hostname}`;
 
     const fallbackFavicons = {
-      "https://mail.google.com/mail/u/0/#search":
-        "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
-      "https://www.evernote.com/client/web":
-        "https://www.evernote.com/favicon.ico",
-      "https://www.google.com/maps/":
-        "https://www.svgrepo.com/show/375444/google-maps-platform.svg",
-      "https://www.google.com/finance/":
-        "https://cdn-1.webcatalog.io/catalog/google-finance/google-finance-icon-filled-256.webp?v=1714773071984",
+      "https://mail.google.com/mail/u/0/#search": "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
+      "https://www.evernote.com/client/web": "https://www.evernote.com/favicon.ico",
+      "https://www.google.com/maps/": "https://www.svgrepo.com/show/375444/google-maps-platform.svg",
+      "https://www.google.com/finance/": "https://cdn-1.webcatalog.io/catalog/google-finance/google-finance-icon-filled-256.webp?v=1714773071984",
     };
 
     return fallbackFavicons[url] || googleFaviconUrl;
@@ -106,69 +102,62 @@ const getButton = () => {
 
 getButton();
 
+// -------------------
+// Unified Search Logic
+// -------------------
+function handleSearch(query) {
+  const [prefix, ...rest] = query.trim().split(" ");
+  const queryText = rest.join(" ");
+
+  const engines = {
+    g: ["https://www.google.com", "/search?q="],
+    yt: ["https://www.youtube.com", "/results?search_query="],
+    mdn: ["https://developer.mozilla.org/en-US/search", "?q="],
+    gh: ["https://github.com/search", "?q="],
+  };
+
+  if (engines[prefix]) {
+    const [url, param] = engines[prefix];
+    openURL(url, param, queryText);
+  } else {
+    openURL("https://www.google.com", "/search?q=", query);
+  }
+}
+
+// ---------------------------
+// Keyboard Shortcuts Handler
+// ---------------------------
 document.addEventListener("keydown", (event) => {
   const searchInput = document.querySelector(".search");
 
   if (event.key === "/") {
-    event.preventDefault(); // Prevent the default action of the slash key
+    event.preventDefault(); // Focus search input on "/"
     searchInput.focus();
   } else if (event.key === "Escape") {
-    searchInput.blur();
+    searchInput.blur(); // Unfocus on Escape
   }
 });
 
-// Event listener for search input box to handle Enter key
+// -------------------------
+// Enter Key Search Handler
+// -------------------------
 document.querySelector(".search").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    event.preventDefault(); // Prevent the default form submission
-    const query = event.target.value.trim();
-    const [prefix, ...rest] = query.split(" ");
-    const queryText = rest.join(" ");
-
-    const engines = {
-      g: ["https://www.google.com", "/search?q="],
-      yt: ["https://www.youtube.com", "/results?search_query="],
-      mdn: ["https://developer.mozilla.org/en-US/search", "?q="],
-      gh: ["https://github.com/search", "?q="],
-    };
-
-    if (engines[prefix]) {
-      const [url, param] = engines[prefix];
-      openURL(url, param, queryText);
-    } else {
-      openURL("https://www.google.com", "/search?q=", query);
-    }
+    event.preventDefault();
+    handleSearch(event.target.value);
   }
 });
 
-// Event listener for search icon click (commented out)
+// -------------------------
+// Search Icon Click Handler
+// (optional - can comment out)
+// -------------------------
 /*
 const searchIcon = document.querySelector(".search-icon");
 if (searchIcon) {
   searchIcon.addEventListener("click", () => {
-    const query = document.querySelector(".search").value.trim();
-    const [prefix, ...rest] = query.split(" ");
-    const queryText = rest.join(" ");
-
-    const engines = {
-      g: ["https://www.google.com", "/search?q="],
-      yt: ["https://www.youtube.com", "/results?search_query="],
-      mdn: ["https://developer.mozilla.org/en-US/search", "?q="],
-      gh: ["https://github.com/search", "?q="],
-    };
-
-    if (engines[prefix]) {
-      const [url, param] = engines[prefix];
-      openURL(url, param, queryText);
-    } else {
-      openURL("https://www.google.com", "/search?q=", query);
-    }
+    const query = document.querySelector(".search").value;
+    handleSearch(query);
   });
 }
 */
-
-// Helper function to open the URL
-function openURL(base, param, query) {
-  const searchURL = `${base}${param}${encodeURIComponent(query)}`;
-  window.open(searchURL, "_blank");
-}
