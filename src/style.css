@@ -121,52 +121,35 @@ button:focus {
   margin: 1rem 0;
 }
 
-.searchbar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-  border-radius: 5px;
-  width: 100%;
-}
-
-/* Search input */
 .search {
+  margin: 1.5rem 0;
+  width: 75%;
+  width: 98%;
   padding: 0.5rem;
   font-size: 1rem;
-  width: 85%;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
   border: none;
   outline: none;
   border-radius: 10px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px ;
-  
+  background-color: #333;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
-.searchbar:hover,
-.searchbar:focus {
+.search:focus,
+.search:hover {
   background-color: #fff;
   color: black;
 }
 
-/* Search icon */
-/* .search-icon
- {
-    
-    padding: 0.5rem;
-    font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px ;
-    color: white;
- }
-.search-icon :hover {
-  cursor: pointer;
-} */
+
+
+  
+
+
+
+
+
+
 
 /* GitHub icon/button */
 .github {
