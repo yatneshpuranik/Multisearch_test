@@ -147,10 +147,8 @@ button:focus {
   
 }
 
-.search:hover,
-.search:focus ,
-.search-icon:hover,
-.search-icon:focus{
+.searchbar:hover,
+.searchbar:focus {
   background-color: #fff;
   color: black;
 }
