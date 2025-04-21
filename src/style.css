@@ -123,12 +123,12 @@ button:focus {
 
 .search {
   margin: 1.5rem 0;
-  width: 90%;
+  width: 94%;
   padding: 0.5rem;
   font-size: 1rem;
   border: none;
   outline: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #333;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
