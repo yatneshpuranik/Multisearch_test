@@ -303,11 +303,11 @@ const platforms = {
         url: "https://vimeo.com",
         queryParam: "/search?q=",
       },
-      {
-        name: "TikTok",
-        url: "https://www.tiktok.com",
-        queryParam: "/search?q=",
-      },
+      // {
+      //   name: "TikTok",
+      //   url: "https://www.tiktok.com",
+      //   queryParam: "/search?q=",
+      // },
       {
         name: "Snapchat",
         url: "https://www.snapchat.com",
@@ -357,6 +357,11 @@ const platforms = {
       url: "https://www.youtube.com",
       queryParam: "/results?search_query=",
     },
+    {
+      name: "Pinterest",
+      url: "https://www.pinterest.com",
+      queryParam: "/search/pins/?q=",
+    },    
     {
       name: "Gmail",
       url: "https://mail.google.com/mail/u/0/#search",
@@ -435,6 +440,11 @@ const platforms = {
         name: "Amazon",
         url: "http://www.amazon.in",
         queryParam: "/s?k=",
+      },
+      {
+        name: "Meesho",
+        url: "https://www.meesho.com",
+        queryParam: "/search?q=",
       },
       {
         name: "Flipkart",
@@ -631,6 +641,11 @@ const platforms = {
         url: "https://ocw.mit.edu/index.htm",
       },
       {
+        name: "PhysicsWallah",
+        url: "https://www.pw.live",
+        queryParam: "/search?query=",
+      },      
+      {
         name: "Udemy",
         url: "https://www.udemy.com",
         queryParam: "/courses/search/?q=",
@@ -734,6 +749,11 @@ const platforms = {
         url: "https://www.booking.com/search.html?aid=1833036&sb=1&src=search&src_elem=sb&error_url=https%3A%2F%2Fwww.booking.com%2Findex.html%3Faid%3D1833036%3Blabel%3Dnew_hotel%3Bsid%3Db6b7ae441a77b618b4c068f6b5b799c4%3Bsb_price_type%3Dtotal%26%3B&ss=",
       },
       {
+        name: "Redbus",
+        url: "https://www.redbus.in",
+        queryParam: "/search?fromCityName=",
+      },      
+      {
         name: "Airbnb",
         url: "https://www.airbnb.com/s",
       },
@@ -774,6 +794,11 @@ const platforms = {
         url: "https://music.youtube.com",
         queryParam: "/search?q=",
       },
+      {
+        name: "JioSaavn",
+        url: "https://www.jiosaavn.com",
+        queryParam: "/search/",
+      },      
       {
         name: "Spotify",
         url: "https://open.spotify.com",
