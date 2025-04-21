@@ -207,7 +207,7 @@ button:focus-visible {
     height: auto;
   }
 
-  .col2Container,.col1,.col3 {
+  .col2Container , div.panel {
     grid-template-columns: repeat(2, 1fr);
   }
 
