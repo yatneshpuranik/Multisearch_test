@@ -1,6 +1,6 @@
 # MultiSearch
 
-![Site Preview](image.png)
+![Site Preview](dark.png)
 
 Deployed Link [https://multisearch0.netlify.app/](https://multisearch0.netlify.app/)
 
