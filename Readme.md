@@ -1,8 +1,7 @@
 # MultiSearch
 
-![Site Preview](dark.png)
 
-Deployed Link [https://multisearch0.netlify.app/](https://multisearch0.netlify.app/)
+Deployed Link [https://multisearch00.netlify.app/](https://multisearch00.netlify.app/)
 
 MultiSearch is a web application that allows users to search multiple websites (100+) from a single website or on some website you can't search so it opens them in one click
 
@@ -11,7 +10,7 @@ MultiSearch is a web application that allows users to search multiple websites (
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/s54a/MultiSearch.git
+    git clone https://github.com/yatneshpuranik/MultiSearch_test.git
    ```
 
 2. Install dependencies:
@@ -37,6 +36,5 @@ Contributions are welcome! Please submit pull requests to contribute.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
 
 Feel free to customize it further based on your project's specific needs and features.
